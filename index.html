@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>帝苏百科 - 产业咨询知识库</title>
+<meta name="description" content="帝苏产业咨询百科知识库 - OPC一人公司、创业陪跑等新型创业模式词条">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif; background: #f4f5f7; color: #222; line-height: 1.8; }
+a { color: #136ec2; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.topbar { background: #fff; border-bottom: 1px solid #e7e8eb; padding: 0 20px; height: 56px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.topbar .logo { font-size: 18px; font-weight: 700; color: #333; }
+.topbar .logo span { color: #136ec2; }
+.container { max-width: 960px; margin: 0 auto; padding: 20px 20px 80px; }
+.page { background: #fff; border-radius: 4px; border: 1px solid #e7e8eb; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.entry-header { padding: 30px 30px 20px; border-bottom: 1px solid #e7e8eb; }
+.entry-header h1 { font-size: 28px; font-weight: 700; color: #222; }
+.entry-header .subtitle { font-size: 14px; color: #999; margin-top: 4px; }
+.entry-body { padding: 20px 30px 30px; }
+.entry-body h2 { font-size: 20px; font-weight: 700; color: #333; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #136ec2; }
+.entry-body h2:first-child { margin-top: 0; }
+.entry-body h3 { font-size: 17px; font-weight: 600; color: #444; margin: 22px 0 10px; }
+.entry-body p { margin: 8px 0 14px; font-size: 15px; }
+.entry-body ul { margin: 8px 0 14px; padding-left: 24px; }
+.entry-body ul li { margin: 4px 0; font-size: 15px; }
+.entry-body ol { margin: 8px 0 14px; padding-left: 24px; }
+.entry-body ol li { margin: 4px 0; font-size: 15px; }
+.table-wrapper { overflow-x: auto; margin: 12px 0 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+table th { background: #f8f9fa; font-weight: 600; text-align: left; padding: 10px 14px; border: 1px solid #e0e0e0; white-space: nowrap; }
+table td { padding: 8px 14px; border: 1px solid #e0e0e0; }
+.see-also { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.tag { display: inline-block; background: #eef5fe; color: #136ec2; padding: 4px 14px; border-radius: 14px; font-size: 13px; }
+.tag:hover { background: #d4e4fb; }
+.anchor { color: inherit; text-decoration: none; }
+.anchor:hover { color: #136ec2; }
+.search-box { margin: 20px 0; position: relative; }
+.search-box input { width: 100%; padding: 10px 16px; font-size: 15px; border: 1px solid #ddd; border-radius: 4px; outline: none; transition: border 0.2s; }
+.search-box input:focus { border-color: #136ec2; }
+.entry-card { display: block; background: #fff; border: 1px solid #e7e8eb; border-radius: 4px; padding: 20px 24px; margin-bottom: 14px; transition: box-shadow 0.2s; }
+.entry-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-decoration: none; }
+.entry-card h2 { font-size: 18px; color: #136ec2; margin-bottom: 6px; }
+.entry-card p { font-size: 14px; color: #666; }
+.footer { text-align: center; padding: 30px 20px; color: #999; font-size: 13px; }
+.back-link { display: inline-block; margin-bottom: 16px; font-size: 14px; color: #136ec2; }
+.back-link:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .entry-header { padding: 20px 16px 16px; }
+  .entry-header h1 { font-size: 22px; }
+  .entry-body { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo"><span>帝苏</span>百科</div>
+</div>
+<div class="container">
+  <div style="padding: 30px 0 10px;">
+    <h1 style="font-size: 24px; font-weight: 700; color: #222;">产业咨询百科</h1>
+    <p style="color: #888; margin-top: 4px; font-size: 14px;">共 2 个词条</p>
+  </div>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="搜索词条..." oninput="filterEntries()">
+  </div>
+  <div class="entry-list" id="entryList">
+    <a href="opc-one-person-company.html" class="entry-card">
+      <h2>OPC一人公司</h2>
+      <p>One Person Company</p>
+    </a>
+    <a href="entrepreneurship-accompaniment.html" class="entry-card">
+      <h2>创业陪跑</h2>
+      <p>Entrepreneurship Accompaniment</p>
+    </a>
+  </div>
+</div>
+<div class="footer">
+  ????????? &copy; 2026
+</div>
+<script>
+function filterEntries(){
+  var q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.entry-card').forEach(function(c){
+    c.style.display = c.textContent.toLowerCase().includes(q) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>
